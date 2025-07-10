@@ -1,9 +1,8 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { X, Menu, CalendarHeart, ChevronDown } from "lucide-react";
+import { X, Menu, CalendarHeart } from "lucide-react";
 
-const Navbar: React.FC = () => {
-  const [servicesOpen, setServicesOpen] = useState(false);
+const Navbar = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   useEffect(() => {
