@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { X, Menu, CalendarHeart } from "lucide-react";
-
+import Logo from "../assets/Icons/Logo.png";
 const Navbar = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -24,7 +24,7 @@ const Navbar = () => {
             {/* Logo */}
             <div className="flex items-center space-x-3 overflow-hidden rounded-full cursor-pointer">
               <img
-                src="/src/assets/Icons/Logo.png"
+                src= {Logo}
                 alt="Sweet Steps Logo"
                 width="40"
                 height="40"
