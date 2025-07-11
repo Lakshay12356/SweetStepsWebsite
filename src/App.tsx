@@ -5,11 +5,13 @@ import Testimonials from './components/Testimonials'
 import Footer from './components/Footer'
 import BookingOptions from './components/Bookings'
 import FAQ from './components/Faq'
+import { FloatingDockDemo } from './components/Dock'
 
 const App = () => {
   return (
     <div className=''>
       <Navbar />
+      <FloatingDockDemo />
       <Hero />
       <ChoosePackage />
       <Testimonials />
