@@ -73,7 +73,7 @@ const HeroSection = () => {
           poster="../assets/hero-poster.jpg"
         >
           <source
-            src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+            src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
             type="video/mp4"
           />
           Your browser does not support the video tag.

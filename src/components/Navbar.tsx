@@ -145,7 +145,6 @@ const Navbar = () => {
                 Contact
               </Link>
             </div>
-
             {/* CTA Button */}
             <Link to="/booking" onClick={() => setMobileMenuOpen(false)}>
               <button className="flex items-center gap-2 px-5 py-2 text-white bg-gradient-to-r from-[#7808D0] to-purple-500 rounded-full shadow-md shadow-purple-500/30 hover:shadow-lg hover:shadow-purple-500/50 transition-all duration-300 font-medium">
