@@ -22,30 +22,21 @@ export function SignupFormDemo() {
         <div className="mb-4 flex flex-col space-y-2 md:flex-row md:space-y-0 md:space-x-2">
           <LabelInputContainer>
             <Label htmlFor="firstname">First name</Label>
-            <Input id="firstname" placeholder="Tyler" type="text" />
+            <Input id="firstname" placeholder="First Name" type="text" />
           </LabelInputContainer>
           <LabelInputContainer>
             <Label htmlFor="lastname">Last name</Label>
-            <Input id="lastname" placeholder="Durden" type="text" />
+            <Input id="lastname" placeholder="Last Name" type="text" />
           </LabelInputContainer>
         </div>
         <LabelInputContainer className="mb-4">
           <Label htmlFor="email">Email Address</Label>
-          <Input id="email" placeholder="projectmayhem@fc.com" type="email" />
+          <Input id="email" placeholder="xyz@abc.com" type="email" />
         </LabelInputContainer>
         <LabelInputContainer className="mb-4">
           <Label htmlFor="password">Password</Label>
           <Input id="password" placeholder="••••••••" type="password" />
         </LabelInputContainer>
-        <LabelInputContainer className="mb-8">
-          <Label htmlFor="twitterpassword">Your Twitter password</Label>
-          <Input
-            id="twitterpassword"
-            placeholder="••••••••"
-            type="password"
-          />
-        </LabelInputContainer>
-
         <button
           className="group/btn relative block h-10 w-full rounded-md bg-gradient-to-br from-black to-gray-800 font-medium text-white shadow-inner transition duration-300 hover:brightness-110"
           type="submit"
@@ -53,8 +44,6 @@ export function SignupFormDemo() {
           Sign up &rarr;
           <BottomGradient />
         </button>
-
-        <div className="my-8 h-px w-full bg-gradient-to-r from-transparent via-neutral-300 to-transparent" />
       </form>
     </div>
   );
