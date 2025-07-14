@@ -91,70 +91,65 @@ const Navbar = () => {
           </div>
         </div>
       </nav>
+      {/* MOBILE DROPDOWN MENU */}
+      <div className="relative md:hidden">
+        <div
+          className={`origin-top transition-all duration-300 transform ${mobileMenuOpen ? "scale-y-100 opacity-100" : "scale-y-0 opacity-0 pointer-events-none"
+            } absolute top-full mt-2 right-0 w-[85vw] bg-[#414652]/95 backdrop-blur-md rounded-2xl shadow-xl p-6 flex flex-col gap-6 z-50 border border-[#5a5f70]`}
+        >
+          {/* Header */}
+          <div className="flex items-center justify-between">
+            <span className="text-lg font-semibold text-white">Menu</span>
+            <button
+              onClick={() => setMobileMenuOpen(false)}
+              className="text-white hover:text-purple-200"
+            >
+              <X size={24} />
+            </button>
+          </div>
 
-      {/* MOBILE SIDEBAR */}
-      {mobileMenuOpen && (
-        <>
-          {/* Overlay */}
-          <div
-            className="fixed inset-0 z-40 bg-black bg-opacity-60 backdrop-blur-sm"
-            onClick={() => setMobileMenuOpen(false)}
-          ></div>
-
-          {/* Sidebar */}
-          <div className="fixed top-2 right-2 z-50 w-[85%] max-w-sm h-[96%] bg-[#414652]/95 backdrop-blur-md rounded-2xl shadow-2xl p-6 flex flex-col gap-6 overflow-y-auto transition-all duration-300 ease-in-out border border-[#5a5f70]">
-            {/* Header */}
-            <div className="flex items-center justify-between">
-              <span className="text-lg font-semibold text-white">Menu</span>
-              <button
-                onClick={() => setMobileMenuOpen(false)}
-                className="text-white hover:text-purple-200"
-              >
-                <X size={24} />
-              </button>
-            </div>
-
-            {/* Navigation */}
-            <div className="flex flex-col gap-5 text-[16px] font-medium text-white">
-              <Link
-                to="/"
-                onClick={() => setMobileMenuOpen(false)}
-                className="hover:text-[#D6BBFB]"
-              >
-                Home
-              </Link>
-              <a
-                href="#services"
-                onClick={() => setMobileMenuOpen(false)}
-                className="hover:text-[#D6BBFB]"
-              >
-                Services
-              </a>
-              <Link
-                to="/aboutus"
-                onClick={() => setMobileMenuOpen(false)}
-                className="hover:text-[#D6BBFB]"
-              >
-                About Us
-              </Link>
-              <Link
-                to="/contact"
-                onClick={() => setMobileMenuOpen(false)}
-                className="hover:text-[#D6BBFB]"
-              >
-                Contact
-              </Link>
-            </div>
-            {/* CTA Button */}
-            <Link to="/booking" onClick={() => setMobileMenuOpen(false)}>
-              <button className="flex items-center gap-2 px-5 py-2 text-white bg-gradient-to-r from-[#7808D0] to-purple-500 rounded-full shadow-md shadow-purple-500/30 hover:shadow-lg hover:shadow-purple-500/50 transition-all duration-300 font-medium">
-                <CalendarHeart size={18} />
-                Book an Appointment
-              </button>
+          {/* Navigation */}
+          <div className="flex flex-col gap-5 text-[16px] font-medium text-white">
+            <Link
+              to="/"
+              onClick={() => setMobileMenuOpen(false)}
+              className="hover:text-[#D6BBFB]"
+            >
+              Home
+            </Link>
+            <a
+              href="#services"
+              onClick={() => setMobileMenuOpen(false)}
+              className="hover:text-[#D6BBFB]"
+            >
+              Services
+            </a>
+            <Link
+              to="/aboutus"
+              onClick={() => setMobileMenuOpen(false)}
+              className="hover:text-[#D6BBFB]"
+            >
+              About Us
+            </Link>
+            <Link
+              to="/contact"
+              onClick={() => setMobileMenuOpen(false)}
+              className="hover:text-[#D6BBFB]"
+            >
+              Contact
             </Link>
           </div>
-        </>
-      )}
+
+          {/* CTA Button */}
+          <Link to="/booking" onClick={() => setMobileMenuOpen(false)}>
+            <button className="flex items-center gap-2 px-5 py-2 text-white bg-gradient-to-r from-[#7808D0] to-purple-500 rounded-full shadow-md shadow-purple-500/30 hover:shadow-lg hover:shadow-purple-500/50 transition-all duration-300 font-medium">
+              <CalendarHeart size={18} />
+              Book an Appointment
+            </button>
+          </Link>
+        </div>
+      </div>
+
     </>
   );
 };
