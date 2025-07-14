@@ -1,73 +1,111 @@
-"use client";
+import React, { useState } from "react";
 
-import React from "react";
-import { Label } from "./ui/label";
-import { Input } from "./ui/input";
-import { cn } from "../lib/utils";
+const Contact = () => {
+  const [form, setForm] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    phone: "",
+    message: "",
+  });
 
-export function SignupFormDemo() {
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setForm({ ...form, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Form submitted");
+    console.log(form);
+    // submit logic
   };
 
   return (
-    <div className="mx-auto w-full max-w-md rounded-2xl bg-white p-8 shadow-lg">
-      <h2 className="text-xl font-bold text-neutral-900">Welcome to Aceternity</h2>
-      <p className="mt-2 max-w-sm text-sm text-neutral-600">
-        Login to Aceternity if you can — because we don&apos;t have a login flow yet.
-      </p>
+    <section className="bg-white py-20 px-6">
+      <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12">
+        {/* Contact Info */}
+        <div className="space-y-8">
+          <h2 className="text-4xl font-bold text-gray-900">Get in Touch</h2>
+          <p className="text-gray-600">
+            We’d love to hear from you! Let’s discuss how we can help bring your idea to life.
+          </p>
 
-      <form className="my-8" onSubmit={handleSubmit}>
-        <div className="mb-4 flex flex-col space-y-2 md:flex-row md:space-y-0 md:space-x-2">
-          <LabelInputContainer>
-            <Label htmlFor="firstname">First name</Label>
-            <Input id="firstname" placeholder="First Name" type="text" />
-          </LabelInputContainer>
-          <LabelInputContainer>
-            <Label htmlFor="lastname">Last name</Label>
-            <Input id="lastname" placeholder="Last Name" type="text" />
-          </LabelInputContainer>
+          <div className="space-y-4">
+            <div>
+              <h4 className="text-lg font-semibold text-gray-800">Email Us</h4>
+              <p className="text-gray-600">admin@craftique.me</p>
+            </div>
+            <div>
+              <h4 className="text-lg font-semibold text-gray-800">Call Us</h4>
+              <p className="text-gray-600">+91-6378146202</p>
+            </div>
+            <div>
+              <h4 className="text-lg font-semibold text-gray-800">Visit Us</h4>
+              <p className="text-gray-600">73/47 Paramhans Marg, Mansarovar, Jaipur</p>
+            </div>
+          </div>
         </div>
-        <LabelInputContainer className="mb-4">
-          <Label htmlFor="email">Email Address</Label>
-          <Input id="email" placeholder="xyz@abc.com" type="email" />
-        </LabelInputContainer>
-        <LabelInputContainer className="mb-4">
-          <Label htmlFor="password">Password</Label>
-          <Input id="password" placeholder="••••••••" type="password" />
-        </LabelInputContainer>
-        <button
-          className="group/btn relative block h-10 w-full rounded-md bg-gradient-to-br from-black to-gray-800 font-medium text-white shadow-inner transition duration-300 hover:brightness-110"
-          type="submit"
-        >
-          Sign up &rarr;
-          <BottomGradient />
-        </button>
-      </form>
-    </div>
-  );
-}
 
-const BottomGradient = () => {
-  return (
-    <>
-      <span className="absolute inset-x-0 -bottom-px block h-px w-full bg-gradient-to-r from-transparent via-cyan-500 to-transparent opacity-0 transition duration-500 group-hover/btn:opacity-100" />
-      <span className="absolute inset-x-10 -bottom-px mx-auto block h-px w-1/2 bg-gradient-to-r from-transparent via-indigo-500 to-transparent opacity-0 blur-sm transition duration-500 group-hover/btn:opacity-100" />
-    </>
+        {/* Contact Form */}
+        <form onSubmit={handleSubmit} className="bg-gray-50 p-8 rounded-xl shadow-md space-y-6">
+          <h3 className="text-2xl font-semibold text-gray-800">Send a Message</h3>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <input
+              name="firstName"
+              placeholder="First Name"
+              value={form.firstName}
+              onChange={handleChange}
+              className="w-full rounded-md border border-gray-300 px-4 py-2 text-sm text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              required
+            />
+            <input
+              name="lastName"
+              placeholder="Last Name"
+              value={form.lastName}
+              onChange={handleChange}
+              className="w-full rounded-md border border-gray-300 px-4 py-2 text-sm text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            />
+          </div>
+
+          <input
+            name="email"
+            type="email"
+            placeholder="Email"
+            value={form.email}
+            onChange={handleChange}
+            className="w-full rounded-md border border-gray-300 px-4 py-2 text-sm text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            required
+          />
+
+          <input
+            name="phone"
+            type="tel"
+            placeholder="Phone"
+            value={form.phone}
+            onChange={handleChange}
+            className="w-full rounded-md border border-gray-300 px-4 py-2 text-sm text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          />
+
+          <textarea
+            name="message"
+            rows={4}
+            placeholder="Tell us about your project..."
+            value={form.message}
+            onChange={handleChange}
+            className="w-full rounded-md border border-gray-300 px-4 py-2 text-sm text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            required
+          />
+
+          <button
+            type="submit"
+            className="w-full rounded-md bg-blue-600 text-white px-4 py-2 text-sm font-semibold hover:bg-blue-700 transition"
+          >
+            Send Message
+          </button>
+        </form>
+      </div>
+    </section>
   );
 };
 
-const LabelInputContainer = ({
-  children,
-  className,
-}: {
-  children: React.ReactNode;
-  className?: string;
-}) => {
-  return (
-    <div className={cn("flex w-full flex-col space-y-2", className)}>
-      {children}
-    </div>
-  );
-};
+export default Contact;
