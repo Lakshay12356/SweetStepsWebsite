@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Mail, Phone, MapPin } from "lucide-react";
+import { Mail, Phone, MapPin, ChevronDown, ChevronUp } from "lucide-react";
 
 const contactDetails = [
   {
@@ -16,13 +16,6 @@ const contactDetails = [
     color: "from-green-500 to-emerald-500",
     action: "tel:+918302419714",
   },
-  {
-    title: "Visit Us",
-    value: "73/47 Paramhans Marg, Mansarovar, Jaipur",
-    icon: MapPin,
-    color: "from-pink-500 to-purple-500",
-    action: "https://www.google.com/maps/place/Sweet+Steps+Impressions/@26.8571403,75.7671207,17z",
-  },
 ];
 
 const Contact = () => {
@@ -33,6 +26,8 @@ const Contact = () => {
     phone: "",
     message: "",
   });
+
+  const [showMap, setShowMap] = useState(false);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -46,8 +41,11 @@ const Contact = () => {
   return (
     <section className="bg-white py-20 px-6">
       <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12">
+        {/* Contact Info Section */}
         <div className="space-y-6">
           <h2 className="text-3xl font-bold text-gray-900 mb-6">Contact Information</h2>
+
+          {/* Email & Phone Cards */}
           {contactDetails.map((info, i) => (
             <a
               key={i}
@@ -66,14 +64,44 @@ const Contact = () => {
             </a>
           ))}
 
-          <div className="rounded-2xl overflow-hidden shadow-md">
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3558.899827036558!2d75.7671207!3d26.8571403!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x396db53962efcb8f%3A0xae986bdc5dc8e3ad!2sSweet%20Steps%20Impressions!5e0!3m2!1sen!2sin!4v1720964129577!5m2!1sen!2sin"
-              className="w-full h-[250px] border-0"
-              loading="lazy"
-              allowFullScreen
-              referrerPolicy="no-referrer-when-downgrade"
-            ></iframe>
+          {/* Visit Us with Expandable Map */}
+          <div className="rounded-2xl bg-white shadow-md border border-white/80">
+            <button
+              onClick={() => setShowMap(!showMap)}
+              className="w-full flex items-center justify-between gap-4 p-6 hover:bg-gray-50 transition-all"
+            >
+              <div className="flex items-center gap-4">
+                <div className="w-12 h-12 flex items-center justify-center rounded-xl bg-gradient-to-br from-pink-500 to-purple-500">
+                  <MapPin className="text-white w-6 h-6" />
+                </div>
+                <div className="text-left">
+                  <h4 className="text-md font-semibold text-gray-800">Visit Us</h4>
+                  <p className="text-gray-600 text-sm">
+                    73/47 Paramhans Marg, Mansarovar, Jaipur
+                  </p>
+                </div>
+              </div>
+              {showMap ? (
+                <ChevronUp className="text-gray-500" />
+              ) : (
+                <ChevronDown className="text-gray-500" />
+              )}
+            </button>
+
+            {/* Toggleable Google Map */}
+            <div
+              className={`transition-[max-height] duration-500 overflow-hidden ${
+                showMap ? "max-h-[300px] mt-2" : "max-h-0"
+              }`}
+            >
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3558.899827036558!2d75.7671207!3d26.8571403!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x396db53962efcb8f%3A0xae986bdc5dc8e3ad!2sSweet%20Steps%20Impressions!5e0!3m2!1sen!2sin!4v1720964129577!5m2!1sen!2sin"
+                className="w-full h-[250px] border-t rounded-b-2xl"
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              />
+            </div>
           </div>
         </div>
 
