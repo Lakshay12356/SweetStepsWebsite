@@ -9,8 +9,7 @@ const Footer = () => (
         <span className="text-xl font-semibold">Sweet Steps</span>
       </div>
       <ul className="flex flex-wrap justify-center gap-6 text-sm font-medium text-gray-300">
-        <li><a href="/" className="hover:text-white">Homepage</a></li>
-        <li><a href="#services" className="hover:text-white">Products</a></li>
+        <li><a href="/" className="hover:text-white">Home</a></li>
         <li><a href="#services" className="hover:text-white">Services</a></li>
         <li><a href="/aboutus" className="hover:text-white">About Us</a></li>
         <li><a href="/contact" className="hover:text-white">Contact Us</a></li>
