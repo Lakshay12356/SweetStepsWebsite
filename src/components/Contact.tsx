@@ -42,7 +42,9 @@ const Contact = () => {
     <section className="bg-white py-20 px-6">
       <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-start">
         <div className="space-y-6">
-          <h2 className="text-3xl font-bold text-gray-900 mb-6">Contact Information</h2>
+          <h2 className="text-3xl font-bold text-gray-900 mb-6 leading-tight">
+            Get in<br />Touch
+          </h2>
           {contactDetails.map((info, i) => (
             <a
               key={i}
@@ -83,9 +85,8 @@ const Contact = () => {
               )}
             </button>
             <div
-              className={`transition-[max-height] duration-500 overflow-hidden ${
-                showMap ? "max-h-[300px] mt-2" : "max-h-0"
-              }`}
+              className={`transition-[max-height] duration-500 overflow-hidden ${showMap ? "max-h-[300px] mt-2" : "max-h-0"
+                }`}
             >
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3558.899827036558!2d75.7671207!3d26.8571403!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x396db53962efcb8f%3A0xae986bdc5dc8e3ad!2sSweet%20Steps%20Impressions!5e0!3m2!1sen!2sin!4v1720964129577!5m2!1sen!2sin"
