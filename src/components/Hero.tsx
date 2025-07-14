@@ -48,7 +48,6 @@ const HeroSection = () => {
           <Button />
         </div>
       </div>
-      {/* Smooth zoom video container */}
       <motion.div
         style={{ willChange: "transform" }}
         ref={ref}
@@ -85,8 +84,7 @@ const HeroSection = () => {
           {isPlaying ? "🔊" : "🔇"}
         </button>
       </motion.div>
-
-      <div className="h-[10vh]" />
+      <div className="h-[8vh]" />
     </section>
   );
 };
