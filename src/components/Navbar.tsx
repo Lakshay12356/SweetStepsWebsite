@@ -24,7 +24,7 @@ const Navbar = () => {
             {/* Logo */}
             <div className="flex items-center space-x-3 overflow-hidden rounded-full cursor-pointer">
               <img
-                src= {Logo}
+                src={Logo}
                 alt="Sweet Steps Logo"
                 width="40"
                 height="40"
@@ -95,49 +95,52 @@ const Navbar = () => {
       {/* MOBILE SIDEBAR */}
       {mobileMenuOpen && (
         <>
+          {/* Overlay */}
           <div
-            className="fixed inset-0 z-40 bg-black bg-opacity-50 backdrop-blur-sm"
+            className="fixed inset-0 z-40 bg-black bg-opacity-60 backdrop-blur-sm"
             onClick={() => setMobileMenuOpen(false)}
           ></div>
-          <div className="fixed top-2 right-2 z-50 w-[85%] max-w-sm h-[96%] bg-white rounded-2xl shadow-2xl p-5 flex flex-col gap-6 overflow-y-auto transition-all duration-300 ease-in-out">
+
+          {/* Sidebar */}
+          <div className="fixed top-2 right-2 z-50 w-[85%] max-w-sm h-[96%] bg-[#414652]/95 backdrop-blur-md rounded-2xl shadow-2xl p-6 flex flex-col gap-6 overflow-y-auto transition-all duration-300 ease-in-out border border-[#5a5f70]">
             {/* Header */}
             <div className="flex items-center justify-between">
-              <span className="text-lg font-semibold text-[#333]">Menu</span>
+              <span className="text-lg font-semibold text-white">Menu</span>
               <button
                 onClick={() => setMobileMenuOpen(false)}
-                className="text-gray-600 hover:text-black"
+                className="text-white hover:text-purple-200"
               >
                 <X size={24} />
               </button>
             </div>
 
             {/* Navigation */}
-            <div className="flex flex-col gap-4 text-[16px] font-medium text-gray-700">
+            <div className="flex flex-col gap-5 text-[16px] font-medium text-white">
               <Link
                 to="/"
                 onClick={() => setMobileMenuOpen(false)}
-                className="hover:text-[#7808D0]"
+                className="hover:text-[#D6BBFB]"
               >
                 Home
               </Link>
-              {/* Services Dropdown */}
-              <Link
-                to="/services"
-                className="font-medium text-white hover:text-purple-200"
+              <a
+                href="#services"
+                onClick={() => setMobileMenuOpen(false)}
+                className="hover:text-[#D6BBFB]"
               >
                 Services
-              </Link>
+              </a>
               <Link
                 to="/aboutus"
                 onClick={() => setMobileMenuOpen(false)}
-                className="hover:text-[#7808D0]"
+                className="hover:text-[#D6BBFB]"
               >
                 About Us
               </Link>
               <Link
                 to="/contact"
                 onClick={() => setMobileMenuOpen(false)}
-                className="hover:text-[#7808D0]"
+                className="hover:text-[#D6BBFB]"
               >
                 Contact
               </Link>
