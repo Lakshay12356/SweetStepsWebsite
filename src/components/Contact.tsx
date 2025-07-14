@@ -40,12 +40,9 @@ const Contact = () => {
 
   return (
     <section className="bg-white py-20 px-6">
-      <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12">
-        {/* Contact Info Section */}
+      <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-start">
         <div className="space-y-6">
           <h2 className="text-3xl font-bold text-gray-900 mb-6">Contact Information</h2>
-
-          {/* Email & Phone Cards */}
           {contactDetails.map((info, i) => (
             <a
               key={i}
@@ -63,8 +60,6 @@ const Contact = () => {
               </div>
             </a>
           ))}
-
-          {/* Visit Us with Expandable Map */}
           <div className="rounded-2xl bg-white shadow-md border border-white/80">
             <button
               onClick={() => setShowMap(!showMap)}
@@ -87,8 +82,6 @@ const Contact = () => {
                 <ChevronDown className="text-gray-500" />
               )}
             </button>
-
-            {/* Toggleable Google Map */}
             <div
               className={`transition-[max-height] duration-500 overflow-hidden ${
                 showMap ? "max-h-[300px] mt-2" : "max-h-0"
@@ -104,8 +97,6 @@ const Contact = () => {
             </div>
           </div>
         </div>
-
-        {/* Contact Form */}
         <form
           onSubmit={handleSubmit}
           className="bg-gray-50 p-8 rounded-xl shadow-md space-y-6"
