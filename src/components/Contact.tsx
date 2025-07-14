@@ -41,12 +41,12 @@ const Contact = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     console.log(form);
-
   };
 
   return (
     <section className="bg-white py-20 px-6">
       <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12">
+        {/* Contact Details */}
         <div className="space-y-6">
           <h2 className="text-3xl font-bold text-gray-900 mb-6">Contact Information</h2>
           {contactDetails.map((info, i) => (
@@ -66,7 +66,20 @@ const Contact = () => {
               </div>
             </a>
           ))}
+
+          {/* Google Map */}
+          <div className="rounded-2xl overflow-hidden shadow-md">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3558.899827036558!2d75.7671207!3d26.8571403!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x396db53962efcb8f%3A0xae986bdc5dc8e3ad!2sSweet%20Steps%20Impressions!5e0!3m2!1sen!2sin!4v1720964129577!5m2!1sen!2sin"
+              className="w-full h-[250px] border-0"
+              loading="lazy"
+              allowFullScreen
+              referrerPolicy="no-referrer-when-downgrade"
+            ></iframe>
+          </div>
         </div>
+
+        {/* Contact Form */}
         <form
           onSubmit={handleSubmit}
           className="bg-gray-50 p-8 rounded-xl shadow-md space-y-6"
