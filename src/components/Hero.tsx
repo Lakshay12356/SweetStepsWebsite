@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import Button from "./UIElements/button";
+import Button from "./ui/Exbutton";
 
 const HeroSection = () => {
   const videoRef = useRef<HTMLVideoElement>(null);

@@ -5,6 +5,7 @@ import Testimonials from './components/Testimonials'
 import Footer from './components/Footer'
 import BookingOptions from './components/Bookings'
 import FAQ from './components/Faq'
+import {SignupFormDemo} from './components/Contact'
 
 const App = () => {
   return (
@@ -15,6 +16,7 @@ const App = () => {
       <Testimonials />
       <BookingOptions />
       <FAQ />
+      <SignupFormDemo />
       <Footer />
     </div>
   )

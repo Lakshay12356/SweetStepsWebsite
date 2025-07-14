@@ -1,4 +1,4 @@
-import BookingCard from "./UIElements/bookingCard";
+import BookingCard from "./ui/bookingCard";
 
 const bookings = [
   { title: "Booking made easy", text: "Reserve your slot online or call" },
