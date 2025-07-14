@@ -72,7 +72,7 @@ const Navbar = () => {
             {/* Desktop CTA */}
             <div className="hidden md:flex">
               <Link to="/booking" className="py-2">
-                <button className="flex items-center gap-2 px-5 py-2 text-white border border-[#7808D0] bg-[#7808D0] rounded-full hover:bg-black hover:text-white hover:border-black transition-all duration-300 font-medium">
+                <button className="flex items-center gap-2 px-5 py-2 text-white bg-gradient-to-r from-[#7808D0] to-purple-500 rounded-full shadow-md shadow-purple-500/30 hover:shadow-lg hover:shadow-purple-500/50 transition-all duration-300 font-medium">
                   <CalendarHeart size={18} />
                   Book an Appointment
                 </button>
@@ -148,9 +148,9 @@ const Navbar = () => {
 
             {/* CTA Button */}
             <Link to="/booking" onClick={() => setMobileMenuOpen(false)}>
-              <button className="w-full mt-2 flex items-center justify-center gap-2 px-5 py-3 text-white border border-[#7808D0] bg-[#7808D0] rounded-full hover:bg-black hover:border-black transition-all duration-300 font-semibold">
+              <button className="flex items-center gap-2 px-5 py-2 text-white bg-gradient-to-r from-[#7808D0] to-purple-500 rounded-full shadow-md shadow-purple-500/30 hover:shadow-lg hover:shadow-purple-500/50 transition-all duration-300 font-medium">
                 <CalendarHeart size={18} />
-                Book Appointment
+                Book an Appointment
               </button>
             </Link>
           </div>
