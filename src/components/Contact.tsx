@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Mail, Phone, MapPin, ChevronDown, ChevronUp } from "lucide-react";
 import { useForm } from "react-hook-form";
-import { Input } from "@/components/ui/input";
+import { Input } from "../components/ui/input";
 import { Button } from "../components/ui/button";
 
 const contactDetails = [
