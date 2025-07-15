@@ -1,5 +1,8 @@
 import { useState } from "react";
 import { Mail, Phone, MapPin, ChevronDown, ChevronUp } from "lucide-react";
+import { useForm } from "react-hook-form";
+import { Input } from "@/components/ui/input";
+import { Button } from "../components/ui/button";
 
 const contactDetails = [
   {
@@ -19,6 +22,22 @@ const contactDetails = [
 ];
 
 const Contact = () => {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<FormData>();
+
+  const onSubmit = (data: FormData) => {
+    console.log("Form Data:", data);
+  };
+  type FormData = {
+    firstName: string;
+    lastName: string;
+    email: string;
+    phone: string;
+  };
+
   const [form, setForm] = useState({
     firstName: "",
     lastName: "",
@@ -31,11 +50,6 @@ const Contact = () => {
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setForm({ ...form, [e.target.name]: e.target.value });
-  };
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    console.log(form);
   };
 
   return (
@@ -99,54 +113,55 @@ const Contact = () => {
           </div>
         </div>
         <form
-          onSubmit={handleSubmit}
-          className="bg-gray-50 p-8 rounded-xl shadow-md space-y-6"
+          onSubmit={handleSubmit(onSubmit)}
+          className="bg-gray-50 p-8 rounded-xl shadow-md space-y-6 h-[56vh]"
         >
           <h3 className="text-2xl font-semibold text-gray-800">Book a Call</h3>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <input
-              name="firstName"
+            <Input
+              {...register("firstName", { required: "First Name is required" })}
               placeholder="First Name"
-              value={form.firstName}
-              onChange={handleChange}
-              className="w-full rounded-md border border-gray-300 px-4 py-2 text-sm text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
-              required
             />
-            <input
-              name="lastName"
+            <Input
+              {...register("lastName")}
               placeholder="Last Name"
-              value={form.lastName}
-              onChange={handleChange}
-              className="w-full rounded-md border border-gray-300 px-4 py-2 text-sm text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
           </div>
 
-          <input
-            name="email"
+          <Input
             type="email"
             placeholder="Email"
-            value={form.email}
-            onChange={handleChange}
-            className="w-full rounded-md border border-gray-300 px-4 py-2 text-sm text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
-            required
+            {...register("email", {
+              required: "Email is required",
+              pattern: {
+                value: /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/,
+                message: "Invalid email",
+              },
+            })}
           />
+          {errors.email && <p className="text-sm text-red-500">{errors.email.message}</p>}
 
-          <input
-            name="phone"
+          <Input
             type="tel"
             placeholder="Phone"
-            value={form.phone}
-            onChange={handleChange}
-            className="w-full rounded-md border border-gray-300 px-4 py-2 text-sm text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            {...register("phone", {
+              pattern: {
+                value: /^[0-9+\-()\s]*$/,
+                message: "Invalid phone number",
+              },
+            })}
           />
-          <button
+          {errors.phone && <p className="text-sm text-red-500">{errors.phone.message}</p>}
+
+          <Button
             type="submit"
-            className="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white px-4 py-2 rounded-md text-sm font-medium hover:from-blue-700 hover:to-purple-700 transition-all"
+            className="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white hover:from-blue-700 hover:to-purple-700"
           >
             Send Message
-          </button>
+          </Button>
         </form>
+
       </div>
     </section>
   );
