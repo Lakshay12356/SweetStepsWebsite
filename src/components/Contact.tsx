@@ -38,19 +38,7 @@ const Contact = () => {
     phone: string;
   };
 
-  const [form, setForm] = useState({
-    firstName: "",
-    lastName: "",
-    email: "",
-    phone: "",
-    message: "",
-  });
-
   const [showMap, setShowMap] = useState(false);
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setForm({ ...form, [e.target.name]: e.target.value });
-  };
 
   return (
     <section className="bg-white py-20 px-6">
