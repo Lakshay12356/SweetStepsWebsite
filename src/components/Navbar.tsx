@@ -91,7 +91,7 @@ const Navbar = () => {
 
             {/* Mobile Dropdown Menu */}
             {mobileMenuOpen && (
-              <div className="absolute top-full left-0 w-full bg-[#414652] bg-opacity-95 backdrop-blur-md rounded-b-2xl shadow-md border-t border-[#5a5f70] px-6 py-5 z-40 transition-all duration-300 ease-in-out">
+              <div className="absolute top-0 left-0 w-full bg-[#414652] bg-opacity-95 backdrop-blur-md rounded-2xl shadow-md border-t border-[#5a5f70] px-6 py-5 z-40 transition-all duration-300 ease-in-out">
                 <div className="flex flex-col gap-5 text-white text-base font-medium">
                   <Link to="/" onClick={() => setMobileMenuOpen(false)} className="hover:text-purple-300">
                     Home
