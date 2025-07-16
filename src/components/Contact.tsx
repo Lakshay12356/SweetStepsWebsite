@@ -8,7 +8,7 @@ import {
   TabsList,
   TabsTrigger,
   TabsContent,
-} from "../components/ui/tabs";
+} from "../components/ui/tabs"; // ensure path is correct
 
 const contactDetails = [
   {
@@ -50,7 +50,7 @@ const Contact = () => {
   return (
     <section className="bg-white py-20 px-6">
       <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-start">
-        {/* LEFT SIDE CONTACT DETAILS */}
+        {/* LEFT SIDE CONTACT INFO */}
         <div className="space-y-6">
           <h2 className="text-3xl font-bold text-gray-900 mb-6 leading-tight">
             Get in<br />Touch
@@ -68,15 +68,13 @@ const Contact = () => {
                 <info.icon className="text-white w-6 h-6" />
               </div>
               <div>
-                <h4 className="text-md font-semibold text-gray-800">
-                  {info.title}
-                </h4>
+                <h4 className="text-md font-semibold text-gray-800">{info.title}</h4>
                 <p className="text-gray-600 text-sm">{info.value}</p>
               </div>
             </a>
           ))}
 
-          {/* MAP SECTION */}
+          {/* MAP TOGGLE */}
           <div className="rounded-2xl bg-white shadow-md border border-white/80">
             <button
               onClick={() => setShowMap(!showMap)}
@@ -115,22 +113,19 @@ const Contact = () => {
           </div>
         </div>
 
-        {/* RIGHT SIDE TABBED FORM */}
-        <form
-          onSubmit={handleSubmit(onSubmit)}
-          className="bg-gray-50 p-6 rounded-xl shadow-md"
-        >
-          <h3 className="text-2xl font-semibold text-gray-800 mb-4">Book a Call</h3>
+        {/* RIGHT SIDE FORM WRAPPED IN A SINGLE TAB */}
+        <Tabs defaultValue="form" className="w-full">
+          <TabsList className="w-full mb-4">
+            <TabsTrigger value="form" className="w-full text-lg font-semibold">
+              Book a Call
+            </TabsTrigger>
+          </TabsList>
 
-          <Tabs defaultValue="personal" className="w-full space-y-4">
-            <TabsList className="grid w-full grid-cols-3">
-              <TabsTrigger value="personal">Personal</TabsTrigger>
-              <TabsTrigger value="contact">Contact</TabsTrigger>
-              <TabsTrigger value="submit">Submit</TabsTrigger>
-            </TabsList>
-
-            {/* Personal Tab */}
-            <TabsContent value="personal" className="space-y-4 pt-2">
+          <TabsContent value="form">
+            <form
+              onSubmit={handleSubmit(onSubmit)}
+              className="bg-gray-50 p-8 rounded-xl shadow-md space-y-6"
+            >
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <Input
                   {...register("firstName", {
@@ -144,14 +139,9 @@ const Contact = () => {
                 />
               </div>
               {errors.firstName && (
-                <p className="text-sm text-red-500">
-                  {errors.firstName.message}
-                </p>
+                <p className="text-sm text-red-500">{errors.firstName.message}</p>
               )}
-            </TabsContent>
 
-            {/* Contact Tab */}
-            <TabsContent value="contact" className="space-y-4 pt-2">
               <Input
                 type="email"
                 placeholder="Email"
@@ -180,19 +170,16 @@ const Contact = () => {
               {errors.phone && (
                 <p className="text-sm text-red-500">{errors.phone.message}</p>
               )}
-            </TabsContent>
 
-            {/* Submit Tab */}
-            <TabsContent value="submit" className="pt-4">
               <Button
                 type="submit"
                 className="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white hover:from-blue-700 hover:to-purple-700"
               >
                 Send Message
               </Button>
-            </TabsContent>
-          </Tabs>
-        </form>
+            </form>
+          </TabsContent>
+        </Tabs>
       </div>
     </section>
   );
