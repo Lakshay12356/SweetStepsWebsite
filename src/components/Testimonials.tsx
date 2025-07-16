@@ -23,7 +23,7 @@ const Testimonials = () => {
         {/* Left Column (Text) */}
         <div className="flex flex-col justify-center items-start">
           <p className="text-lg font-medium text-purple-500">Stories That Stay With You</p>
-          <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 leading-tight mb-4">
+          <h2 className="text-4xl md:text-4xl font-extrabold text-gray-900 leading-tight mb-4">
             Loved by Families,<br />
             Treasured for Generations
           </h2>
