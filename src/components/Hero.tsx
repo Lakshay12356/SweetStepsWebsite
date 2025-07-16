@@ -1,23 +1,14 @@
 import { useEffect, useRef, useState } from "react";
-import { motion, useAnimation } from "framer-motion";
-import { useInView } from "react-intersection-observer";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Button from "./ui/Exbutton";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const HeroSection = () => {
   const videoRef = useRef<HTMLVideoElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
   const [isPlaying, setIsPlaying] = useState(false);
-  const controls = useAnimation();
-
-  const [ref, inView] = useInView({
-    threshold: 0.6,
-    triggerOnce: false,
-  });
-
-  useEffect(() => {
-    controls.start({
-      scale: inView ? 1 : 0.67,
-    });
-  }, [inView, controls]);
 
   const handleToggle = () => {
     const video = videoRef.current;
@@ -34,6 +25,25 @@ const HeroSection = () => {
     }
   };
 
+  useEffect(() => {
+    if (!containerRef.current) return;
+
+    gsap.fromTo(
+      containerRef.current,
+      { scale: 0.67 },
+      {
+        scale: 1,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: containerRef.current,
+          start: "top 80%",
+          end: "top 40%",
+          scrub: true,
+        },
+      }
+    );
+  }, []);
+
   return (
     <section className="relative min-h-screen flex flex-col items-center text-center px-4 bg-white overflow-hidden">
       {/* Hero text */}
@@ -48,18 +58,11 @@ const HeroSection = () => {
           <Button />
         </div>
       </div>
-      <motion.div
-        style={{ willChange: "transform" }}
-        ref={ref}
-        animate={controls}
-        initial={{ scale: 0.67 }}
-        transition={{
-          type: "spring",
-          stiffness: 60,
-          damping: 18,
-          mass: 0.8,
-        }}
-        className="w-[90vw] mx-auto rounded-xl overflow-hidden shadow-xl origin-center"
+
+      {/* Animated Video Frame */}
+      <div
+        ref={containerRef}
+        className="w-[90vw] mx-auto rounded-xl overflow-hidden shadow-xl origin-center will-change-transform"
       >
         <video
           ref={videoRef}
@@ -77,13 +80,15 @@ const HeroSection = () => {
           />
           Your browser does not support the video tag.
         </video>
+
         <button
           onClick={handleToggle}
           className="absolute top-2 right-2 bg-black bg-opacity-60 text-white px-2 py-1 text-xs rounded-full hover:bg-opacity-80 transition z-10"
         >
           {isPlaying ? "🔊" : "🔇"}
         </button>
-      </motion.div>
+      </div>
+
       <div className="h-[8vh]" />
     </section>
   );
