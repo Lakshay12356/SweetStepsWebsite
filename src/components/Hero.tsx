@@ -57,7 +57,7 @@ const HeroSection = () => {
           Immortalize your loved ones’ touch with handcrafted impressions.
         </p>
         <div className="mt-6">
-          <Button />
+          <Button aria-label="Explore Impressions" />
         </div>
       </div>
 
@@ -84,6 +84,7 @@ const HeroSection = () => {
 
         <button
           onClick={handleToggle}
+          aria-label={isPlaying ? "Mute video" : "Unmute video"}
           className="absolute top-2 right-2 bg-black bg-opacity-60 text-white px-2 py-1 text-xs rounded-full hover:bg-opacity-80 transition z-10"
         >
           {isPlaying ? "🔊" : "🔇"}
@@ -91,6 +92,9 @@ const HeroSection = () => {
       </div>
 
       <div className="h-[8vh]" />
+      <div className="absolute bottom-2 right-0 animate-bounce text-gray-600">
+        <span className="text-2xl">↓</span>
+      </div>
     </section>
   );
 };
