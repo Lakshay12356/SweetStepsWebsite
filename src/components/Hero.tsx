@@ -49,7 +49,7 @@ const HeroSection = () => {
   return (
     <section className="relative min-h-screen flex flex-col items-center text-center px-4 bg-white overflow-hidden">
       {/* Hero text */}
-      <div className="relative z-10 flex flex-col items-center justify-center min-h-[60vh] pt-16">
+      <div className="relative z-10 flex flex-col items-center justify-center min-h-[60vh] pt-16 mt-12">
         <h1 className="text-3xl md:text-5xl font-bold text-gray-900">
           Capture Moments Frame Emotions
         </h1>
