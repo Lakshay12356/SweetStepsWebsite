@@ -39,6 +39,7 @@ const HeroSection = () => {
           start: "top 85%",
           end: "top 20%",
           scrub: true,
+          markers: false,
         },
       }
     );
@@ -60,7 +61,6 @@ const HeroSection = () => {
         </div>
       </div>
 
-      {/* Animated Video Frame */}
       <div
         ref={containerRef}
         className="w-[90vw] mx-auto rounded-xl overflow-hidden shadow-xl origin-center will-change-transform"
@@ -73,7 +73,7 @@ const HeroSection = () => {
           loop
           controls={false}
           preload="auto"
-          poster="../assets/hero-poster.jpg"
+          poster="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/images/BigBuckBunny.jpg"
         >
           <source
             src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
