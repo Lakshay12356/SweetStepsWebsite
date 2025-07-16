@@ -15,10 +15,10 @@ const Footer = () => (
         <li><a href="/contact" className="hover:text-white">Contact Us</a></li>
       </ul>
       <div className="flex space-x-6 text-gray-300">
-        <a href="https://www.facebook.com" className="hover:text-white"><Facebook size={20} /></a>
-        <a href="https://x.com" className="hover:text-white"><Twitter size={20} /></a>
-        <a href="https://instagram.com/sweet_.steps__" className="hover:text-white"><Instagram size={20} /></a>
-        <a href="https://linkedin.com" className="hover:text-white"><Linkedin size={20} /></a>
+        <a href="https://www.facebook.com" aria-label="Visit us on Facebook" className="hover:text-white"><Facebook size={20} /></a>
+        <a href="https://x.com" aria-label="Visit us on Twitter (X)" className="hover:text-white"><Twitter size={20} /></a>
+        <a href="https://instagram.com/sweet_.steps__" aria-label="Visit our Instagram" className="hover:text-white"><Instagram size={20} /></a>
+        <a href="https://linkedin.com" aria-label="Visit us on LinkedIn" className="hover:text-white"><Linkedin size={20} /></a>
       </div>
     </div>
     <div className="mt-10 text-center text-xs text-gray-500">

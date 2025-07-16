@@ -99,6 +99,7 @@ const Contact = () => {
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3558.899827036558!2d75.7671207!3d26.8571403!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x396db53962efcb8f%3A0xae986bdc5dc8e3ad!2sSweet%20Steps%20Impressions!5e0!3m2!1sen!2sin!4v1720964129577!5m2!1sen!2sin"
                 className="w-full h-[250px] border-t rounded-b-2xl"
+                title="Sweet Steps Studio Location"
                 allowFullScreen
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
