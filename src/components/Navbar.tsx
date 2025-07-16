@@ -90,7 +90,7 @@ const Navbar = () => {
         </div>
       </nav>
       {mobileMenuOpen && (
-        <div className="absolute mt-12 top-0 left-0 w-[80%] bg-[#414652]/80 backdrop-blur-sm rounded-2xl shadow-md border-t border-[#5a5f70] px-6 py-5 z-40 transition-all duration-300 ease-in-out">
+        <div className="absolute mt-12 top-0 center w-[80%] bg-[#414652]/80 backdrop-blur-sm rounded-2xl shadow-md border-t border-[#5a5f70] px-6 py-5 z-40 transition-all duration-300 ease-in-out">
           <div className="flex flex-col gap-5 text-white text-base font-medium">
             <Link to="/" onClick={() => setMobileMenuOpen(false)} className="hover:text-purple-300">
               Home
