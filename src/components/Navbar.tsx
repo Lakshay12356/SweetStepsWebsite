@@ -59,7 +59,9 @@ const Navbar = () => {
                 onClick={() => {
                   const section = document.getElementById("services");
                   section?.scrollIntoView({ behavior: "smooth" });
-                  setMobileMenuOpen(false);
+                  setTimeout(() => {
+                    setMobileMenuOpen(false);
+                  }, 300);
                 }}
                 className="cursor-pointer font-medium text-white hover:text-purple-200"
               >
@@ -109,7 +111,9 @@ const Navbar = () => {
             onClick={() => {
               const section = document.getElementById("services");
               section?.scrollIntoView({ behavior: "smooth" });
-              setMobileMenuOpen(false);
+              setTimeout(() => {
+                setMobileMenuOpen(false);
+              }, 300);
             }}
             className="cursor-pointer font-medium text-white hover:text-purple-200"
           >
