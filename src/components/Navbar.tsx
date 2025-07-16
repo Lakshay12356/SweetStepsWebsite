@@ -55,9 +55,17 @@ const Navbar = () => {
               <Link to="/" className="font-medium text-white hover:text-purple-200">
                 Home
               </Link>
-              <a href="#services" className="font-medium text-white hover:text-purple-200">
+              <span
+                onClick={() => {
+                  const section = document.getElementById("services");
+                  section?.scrollIntoView({ behavior: "smooth" });
+                  setMobileMenuOpen(false);
+                }}
+                className="cursor-pointer font-medium text-white hover:text-purple-200"
+              >
                 Services
-              </a>
+              </span>
+
               <Link to="/aboutus" className="font-medium text-white hover:text-purple-200">
                 About Us
               </Link>
@@ -90,17 +98,24 @@ const Navbar = () => {
       {/* Mobile dropdown */}
       <div
         ref={menuRef}
-        className={`absolute top-20 left-1/2 transform -translate-x-1/2 w-[80%] bg-[#414652]/80 backdrop-blur-sm rounded-2xl shadow-md border-t border-[#5a5f70] px-6 py-5 z-40 ${
-          !mobileMenuOpen ? "pointer-events-none" : ""
-        } md:hidden`}
+        className={`absolute top-20 left-1/2 transform -translate-x-1/2 w-[80%] bg-[#414652]/80 backdrop-blur-sm rounded-2xl shadow-md border-t border-[#5a5f70] px-6 py-5 z-40 ${!mobileMenuOpen ? "pointer-events-none" : ""
+          } md:hidden`}
       >
         <div className="flex flex-col gap-5 text-white text-base font-medium">
           <Link to="/" onClick={() => setMobileMenuOpen(false)} className="hover:text-purple-300">
             Home
           </Link>
-          <a href="#services" onClick={() => setMobileMenuOpen(false)} className="hover:text-purple-300">
+          <span
+            onClick={() => {
+              const section = document.getElementById("services");
+              section?.scrollIntoView({ behavior: "smooth" });
+              setMobileMenuOpen(false);
+            }}
+            className="cursor-pointer font-medium text-white hover:text-purple-200"
+          >
             Services
-          </a>
+          </span>
+
           <Link to="/aboutus" onClick={() => setMobileMenuOpen(false)} className="hover:text-purple-300">
             About Us
           </Link>
