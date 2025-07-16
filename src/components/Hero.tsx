@@ -36,13 +36,15 @@ const HeroSection = () => {
         ease: "power3.out",
         scrollTrigger: {
           trigger: containerRef.current,
-          start: "top 80%",
-          end: "top 40%",
+          start: "top 85%",
+          end: "top 20%",
           scrub: true,
+          markers: true,
         },
       }
     );
   }, []);
+
 
   return (
     <section className="relative min-h-screen flex flex-col items-center text-center px-4 bg-white overflow-hidden">
