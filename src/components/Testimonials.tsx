@@ -22,12 +22,14 @@ const Testimonials = () => {
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
         {/* Left Column (Text) */}
         <div className="flex flex-col justify-center items-start">
-          <span className="text-lg text-purple-400 mb-2">Real Stories, Real Keepsakes</span>
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 leading-tight text-gray-900">
-            What Families Say About Us
+          <p className="text-lg font-medium text-purple-500">Stories That Stay With You</p>
+          <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 leading-tight mb-4">
+            Loved by Families,<br />
+            Treasured for Generations
           </h2>
-          <p className="text-gray-600 mb-8 max-w-md">
-            Every impression tells a story — of love, of beginnings, of cherished bonds. From tiny baby toes to generational handprints, hear how our handcrafted 3D impressions are making memories last forever in homes like yours.
+          <p className="text-lg text-gray-600 max-w-xl">
+            Every impression captures a precious chapter: a baby's first touch, a parent's loving embrace.
+            These aren’t just memories, they’re moments, captured forever in the hands of the ones you love.
           </p>
         </div>
 
