@@ -44,42 +44,42 @@ const Contact = () => {
   return (
     <section className="bg-white py-20 px-6">
       <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-start">
-        {/* LEFT SIDE CONTACT INFO */}
+        {/* LEFT: Contact Info */}
         <div className="space-y-6">
-          <h2 className="text-3xl font-bold text-gray-900 mb-6 leading-tight">
-            Get in<br />Touch
+          <h2 className="text-4xl font-extrabold text-gray-900 leading-tight">
+            Get in Touch
           </h2>
 
           {contactDetails.map((info, i) => (
             <a
               key={i}
               href={info.action}
-              className="flex items-center gap-4 p-6 rounded-2xl bg-white shadow-md hover:shadow-lg transition-all border border-white/80 hover:scale-[1.02]"
+              className="flex items-center gap-4 p-5 rounded-2xl bg-white shadow-sm hover:shadow-lg transition-all border border-white/80 hover:scale-[1.02]"
             >
               <div
-                className={`w-12 h-12 flex items-center justify-center rounded-xl bg-gradient-to-br ${info.color}`}
+                className={`w-14 h-14 flex items-center justify-center rounded-xl bg-gradient-to-br ${info.color}`}
               >
-                <info.icon className="text-white w-6 h-6" />
+                <info.icon className="text-white w-7 h-7" />
               </div>
               <div>
-                <h4 className="text-md font-semibold text-gray-800">{info.title}</h4>
+                <h4 className="text-lg font-semibold text-gray-800">{info.title}</h4>
                 <p className="text-gray-600 text-sm">{info.value}</p>
               </div>
             </a>
           ))}
 
-          {/* MAP TOGGLE */}
-          <div className="rounded-2xl bg-white shadow-md border border-white/80">
+          {/* MAP */}
+          <div className="rounded-2xl bg-white shadow-sm border border-white/80">
             <button
               onClick={() => setShowMap(!showMap)}
-              className="w-full flex items-center justify-between gap-4 p-6 hover:bg-gray-50 transition-all"
+              className="w-full flex items-center justify-between gap-4 p-5 hover:bg-gray-50 transition-all"
             >
               <div className="flex items-center gap-4">
-                <div className="w-12 h-12 flex items-center justify-center rounded-xl bg-gradient-to-br from-pink-500 to-purple-500">
-                  <MapPin className="text-white w-6 h-6" />
+                <div className="w-14 h-14 flex items-center justify-center rounded-xl bg-gradient-to-br from-pink-500 to-purple-500">
+                  <MapPin className="text-white w-7 h-7" />
                 </div>
                 <div className="text-left">
-                  <h4 className="text-md font-semibold text-gray-800">Visit Us</h4>
+                  <h4 className="text-lg font-semibold text-gray-800">Visit Us</h4>
                   <p className="text-gray-600 text-sm">
                     73/47 Paramhans Marg, Mansarovar, Jaipur
                   </p>
@@ -107,63 +107,73 @@ const Contact = () => {
           </div>
         </div>
 
-        {/* RIGHT SIDE FORM (No Tabs) */}
+        {/* RIGHT: Form */}
         <form
           onSubmit={handleSubmit(onSubmit)}
-          className="bg-gray-50 p-8 rounded-xl shadow-md space-y-6"
+          className="bg-gray-50 p-8 rounded-xl shadow-sm space-y-6"
         >
-          <h3 className="text-2xl font-semibold text-gray-800 mb-4">
+          <h3 className="text-3xl font-bold text-gray-900 mb-2">
             Book a Call
           </h3>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <Input
-              {...register("firstName", {
-                required: "First Name is required",
-              })}
-              placeholder="First Name"
-            />
-            <Input
-              {...register("lastName")}
-              placeholder="Last Name"
-            />
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-1">First Name</label>
+              <Input
+                {...register("firstName", {
+                  required: "First Name is required",
+                })}
+                placeholder="First Name"
+              />
+              {errors.firstName && (
+                <p className="text-xs text-red-500 mt-1">{errors.firstName.message}</p>
+              )}
+            </div>
+
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-1">Last Name</label>
+              <Input {...register("lastName")} placeholder="Last Name" />
+            </div>
           </div>
-          {errors.firstName && (
-            <p className="text-sm text-red-500">{errors.firstName.message}</p>
-          )}
 
-          <Input
-            type="email"
-            placeholder="Email"
-            {...register("email", {
-              required: "Email is required",
-              pattern: {
-                value: /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/,
-                message: "Invalid email",
-              },
-            })}
-          />
-          {errors.email && (
-            <p className="text-sm text-red-500">{errors.email.message}</p>
-          )}
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-1">Email</label>
+            <Input
+              type="email"
+              placeholder="Email"
+              {...register("email", {
+                required: "Email is required",
+                pattern: {
+                  value: /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/,
+                  message: "Invalid email",
+                },
+              })}
+            />
+            {errors.email && (
+              <p className="text-xs text-red-500 mt-1">{errors.email.message}</p>
+            )}
+          </div>
 
-          <Input
-            type="tel"
-            placeholder="Phone"
-            {...register("phone", {
-              pattern: {
-                value: /^[0-9+\-()\s]*$/,
-                message: "Invalid phone number",
-              },
-            })}
-          />
-          {errors.phone && (
-            <p className="text-sm text-red-500">{errors.phone.message}</p>
-          )}
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-1">Phone</label>
+            <Input
+              type="tel"
+              placeholder="Phone"
+              {...register("phone", {
+                pattern: {
+                  value: /^[0-9+\-()\s]*$/,
+                  message: "Invalid phone number",
+                },
+              })}
+            />
+            {errors.phone && (
+              <p className="text-xs text-red-500 mt-1">{errors.phone.message}</p>
+            )}
+          </div>
 
           <Button
             type="submit"
-            className="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white hover:from-blue-700 hover:to-purple-700"
+            className="w-full mt-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white hover:from-blue-700 hover:to-purple-700 transition"
           >
             Send Message
           </Button>
