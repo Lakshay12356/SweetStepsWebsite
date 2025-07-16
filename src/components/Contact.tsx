@@ -3,6 +3,12 @@ import { Mail, Phone, MapPin, ChevronDown, ChevronUp } from "lucide-react";
 import { useForm } from "react-hook-form";
 import { Input } from "../components/ui/input";
 import { Button } from "../components/ui/button";
+import {
+  Tabs,
+  TabsList,
+  TabsTrigger,
+  TabsContent,
+} from "../components/ui/tabs";
 
 const contactDetails = [
   {
@@ -21,6 +27,13 @@ const contactDetails = [
   },
 ];
 
+type FormData = {
+  firstName: string;
+  lastName: string;
+  email: string;
+  phone: string;
+};
+
 const Contact = () => {
   const {
     register,
@@ -31,22 +44,18 @@ const Contact = () => {
   const onSubmit = (data: FormData) => {
     console.log("Form Data:", data);
   };
-  type FormData = {
-    firstName: string;
-    lastName: string;
-    email: string;
-    phone: string;
-  };
 
   const [showMap, setShowMap] = useState(false);
 
   return (
     <section className="bg-white py-20 px-6">
       <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-start">
+        {/* LEFT SIDE CONTACT DETAILS */}
         <div className="space-y-6">
           <h2 className="text-3xl font-bold text-gray-900 mb-6 leading-tight">
             Get in<br />Touch
           </h2>
+
           {contactDetails.map((info, i) => (
             <a
               key={i}
@@ -59,11 +68,15 @@ const Contact = () => {
                 <info.icon className="text-white w-6 h-6" />
               </div>
               <div>
-                <h4 className="text-md font-semibold text-gray-800">{info.title}</h4>
+                <h4 className="text-md font-semibold text-gray-800">
+                  {info.title}
+                </h4>
                 <p className="text-gray-600 text-sm">{info.value}</p>
               </div>
             </a>
           ))}
+
+          {/* MAP SECTION */}
           <div className="rounded-2xl bg-white shadow-md border border-white/80">
             <button
               onClick={() => setShowMap(!showMap)}
@@ -87,8 +100,9 @@ const Contact = () => {
               )}
             </button>
             <div
-              className={`transition-[max-height] duration-500 overflow-hidden ${showMap ? "max-h-[300px] mt-2" : "max-h-0"
-                }`}
+              className={`transition-[max-height] duration-500 overflow-hidden ${
+                showMap ? "max-h-[300px] mt-2" : "max-h-0"
+              }`}
             >
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3558.899827036558!2d75.7671207!3d26.8571403!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x396db53962efcb8f%3A0xae986bdc5dc8e3ad!2sSweet%20Steps%20Impressions!5e0!3m2!1sen!2sin!4v1720964129577!5m2!1sen!2sin"
@@ -100,56 +114,85 @@ const Contact = () => {
             </div>
           </div>
         </div>
+
+        {/* RIGHT SIDE TABBED FORM */}
         <form
           onSubmit={handleSubmit(onSubmit)}
-          className="bg-gray-50 p-8 rounded-xl shadow-md space-y-6 h-[56vh]"
+          className="bg-gray-50 p-6 rounded-xl shadow-md"
         >
-          <h3 className="text-2xl font-semibold text-gray-800">Book a Call</h3>
+          <h3 className="text-2xl font-semibold text-gray-800 mb-4">Book a Call</h3>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <Input
-              {...register("firstName", { required: "First Name is required" })}
-              placeholder="First Name"
-            />
-            <Input
-              {...register("lastName")}
-              placeholder="Last Name"
-            />
-          </div>
+          <Tabs defaultValue="personal" className="w-full space-y-4">
+            <TabsList className="grid w-full grid-cols-3">
+              <TabsTrigger value="personal">Personal</TabsTrigger>
+              <TabsTrigger value="contact">Contact</TabsTrigger>
+              <TabsTrigger value="submit">Submit</TabsTrigger>
+            </TabsList>
 
-          <Input
-            type="email"
-            placeholder="Email"
-            {...register("email", {
-              required: "Email is required",
-              pattern: {
-                value: /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/,
-                message: "Invalid email",
-              },
-            })}
-          />
-          {errors.email && <p className="text-sm text-red-500">{errors.email.message}</p>}
+            {/* Personal Tab */}
+            <TabsContent value="personal" className="space-y-4 pt-2">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <Input
+                  {...register("firstName", {
+                    required: "First Name is required",
+                  })}
+                  placeholder="First Name"
+                />
+                <Input
+                  {...register("lastName")}
+                  placeholder="Last Name"
+                />
+              </div>
+              {errors.firstName && (
+                <p className="text-sm text-red-500">
+                  {errors.firstName.message}
+                </p>
+              )}
+            </TabsContent>
 
-          <Input
-            type="tel"
-            placeholder="Phone"
-            {...register("phone", {
-              pattern: {
-                value: /^[0-9+\-()\s]*$/,
-                message: "Invalid phone number",
-              },
-            })}
-          />
-          {errors.phone && <p className="text-sm text-red-500">{errors.phone.message}</p>}
+            {/* Contact Tab */}
+            <TabsContent value="contact" className="space-y-4 pt-2">
+              <Input
+                type="email"
+                placeholder="Email"
+                {...register("email", {
+                  required: "Email is required",
+                  pattern: {
+                    value: /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/,
+                    message: "Invalid email",
+                  },
+                })}
+              />
+              {errors.email && (
+                <p className="text-sm text-red-500">{errors.email.message}</p>
+              )}
 
-          <Button
-            type="submit"
-            className="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white hover:from-blue-700 hover:to-purple-700"
-          >
-            Send Message
-          </Button>
+              <Input
+                type="tel"
+                placeholder="Phone"
+                {...register("phone", {
+                  pattern: {
+                    value: /^[0-9+\-()\s]*$/,
+                    message: "Invalid phone number",
+                  },
+                })}
+              />
+              {errors.phone && (
+                <p className="text-sm text-red-500">{errors.phone.message}</p>
+              )}
+            </TabsContent>
+
+            {/* Submit Tab */}
+            <TabsContent value="submit" className="pt-4">
+              <Button
+                type="submit"
+                className="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white hover:from-blue-700 hover:to-purple-700"
+              >
+                Send Message
+              </Button>
+            </TabsContent>
+          </Tabs>
         </form>
-
       </div>
     </section>
   );
