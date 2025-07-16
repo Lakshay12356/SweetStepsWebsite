@@ -3,12 +3,6 @@ import { Mail, Phone, MapPin, ChevronDown, ChevronUp } from "lucide-react";
 import { useForm } from "react-hook-form";
 import { Input } from "../components/ui/input";
 import { Button } from "../components/ui/button";
-import {
-  Tabs,
-  TabsList,
-  TabsTrigger,
-  TabsContent,
-} from "../components/ui/tabs"; // ensure path is correct
 
 const contactDetails = [
   {
@@ -113,73 +107,67 @@ const Contact = () => {
           </div>
         </div>
 
-        {/* RIGHT SIDE FORM WRAPPED IN A SINGLE TAB */}
-        <Tabs defaultValue="form" className="w-full">
-          <TabsList className="w-full mb-4">
-            <TabsTrigger value="form" className="w-full text-lg font-semibold">
-              Book a Call
-            </TabsTrigger>
-          </TabsList>
+        {/* RIGHT SIDE FORM (No Tabs) */}
+        <form
+          onSubmit={handleSubmit(onSubmit)}
+          className="bg-gray-50 p-8 rounded-xl shadow-md space-y-6"
+        >
+          <h3 className="text-2xl font-semibold text-gray-800 mb-4">
+            Book a Call
+          </h3>
 
-          <TabsContent value="form">
-            <form
-              onSubmit={handleSubmit(onSubmit)}
-              className="bg-gray-50 p-8 rounded-xl shadow-md space-y-6"
-            >
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <Input
-                  {...register("firstName", {
-                    required: "First Name is required",
-                  })}
-                  placeholder="First Name"
-                />
-                <Input
-                  {...register("lastName")}
-                  placeholder="Last Name"
-                />
-              </div>
-              {errors.firstName && (
-                <p className="text-sm text-red-500">{errors.firstName.message}</p>
-              )}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <Input
+              {...register("firstName", {
+                required: "First Name is required",
+              })}
+              placeholder="First Name"
+            />
+            <Input
+              {...register("lastName")}
+              placeholder="Last Name"
+            />
+          </div>
+          {errors.firstName && (
+            <p className="text-sm text-red-500">{errors.firstName.message}</p>
+          )}
 
-              <Input
-                type="email"
-                placeholder="Email"
-                {...register("email", {
-                  required: "Email is required",
-                  pattern: {
-                    value: /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/,
-                    message: "Invalid email",
-                  },
-                })}
-              />
-              {errors.email && (
-                <p className="text-sm text-red-500">{errors.email.message}</p>
-              )}
+          <Input
+            type="email"
+            placeholder="Email"
+            {...register("email", {
+              required: "Email is required",
+              pattern: {
+                value: /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/,
+                message: "Invalid email",
+              },
+            })}
+          />
+          {errors.email && (
+            <p className="text-sm text-red-500">{errors.email.message}</p>
+          )}
 
-              <Input
-                type="tel"
-                placeholder="Phone"
-                {...register("phone", {
-                  pattern: {
-                    value: /^[0-9+\-()\s]*$/,
-                    message: "Invalid phone number",
-                  },
-                })}
-              />
-              {errors.phone && (
-                <p className="text-sm text-red-500">{errors.phone.message}</p>
-              )}
+          <Input
+            type="tel"
+            placeholder="Phone"
+            {...register("phone", {
+              pattern: {
+                value: /^[0-9+\-()\s]*$/,
+                message: "Invalid phone number",
+              },
+            })}
+          />
+          {errors.phone && (
+            <p className="text-sm text-red-500">{errors.phone.message}</p>
+          )}
 
-              <Button
-                type="submit"
-                className="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white hover:from-blue-700 hover:to-purple-700"
-              >
-                Send Message
-              </Button>
-            </form>
-          </TabsContent>
-        </Tabs>
+          <Button
+            type="submit"
+            className="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white hover:from-blue-700 hover:to-purple-700"
+          >
+            Send Message
+          </Button>
+        </form>
       </div>
     </section>
   );
