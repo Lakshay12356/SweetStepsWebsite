@@ -48,7 +48,7 @@ const ChoosePackage = () => {
         {packages.map((pkg, idx) => (
           <div
             key={idx}
-            className="relative w-80 h-80 rounded-3xl overflow-hidden bg-cover bg-center shadow-lg group transform transition-transform hover:scale-105"
+            className="appear-animation relative w-80 h-80 rounded-3xl overflow-hidden bg-cover bg-center shadow-lg group transform transition-transform hover:scale-105"
             style={{ backgroundImage: `url(${pkg.background})` }}
           >
             <div className="absolute inset-0 bg-black/20 group-hover:bg-black/70 z-10 transition-all duration-300" />
