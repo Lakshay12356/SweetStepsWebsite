@@ -106,7 +106,6 @@ const Navbar = () => {
         </div>
       </nav>
 
-      {/* Mobile dropdown */}
       <div
         ref={menuRef}
         className={`fixed top-20 left-1/2 transform -translate-x-1/2 w-[80%] bg-[#414652]/80 backdrop-blur-sm rounded-2xl shadow-md border-t border-[#5a5f70] px-6 py-5 z-40 md:hidden ${mobileMenuOpen ? "block" : "hidden"
