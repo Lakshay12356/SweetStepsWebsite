@@ -52,9 +52,18 @@ const Navbar = () => {
             </div>
 
             <div className="items-center hidden space-x-8 md:flex">
-              <Link to="/" className="font-medium text-white hover:text-purple-200">
+              <span
+                onClick={() => {
+                  const section = document.getElementById("hero");
+                  section?.scrollIntoView({ behavior: "smooth" });
+                  setTimeout(() => {
+                    setMobileMenuOpen(false);
+                  }, 300);
+                }}
+                className="cursor-pointer font-medium text-white hover:text-purple-200"
+              >
                 Home
-              </Link>
+              </span>
               <span
                 onClick={() => {
                   const section = document.getElementById("services");
@@ -104,9 +113,18 @@ const Navbar = () => {
           }`}
       >
         <div className="flex flex-col gap-5 text-white text-base font-medium">
-          <Link to="/" onClick={() => setMobileMenuOpen(false)} className="hover:text-purple-300">
+          <span
+            onClick={() => {
+              const section = document.getElementById("hero");
+              section?.scrollIntoView({ behavior: "smooth" });
+              setTimeout(() => {
+                setMobileMenuOpen(false);
+              }, 300);
+            }}
+            className="cursor-pointer font-medium text-white hover:text-purple-200"
+          >
             Home
-          </Link>
+          </span>
           <span
             onClick={() => {
               const section = document.getElementById("services");
