@@ -53,7 +53,7 @@ const ChoosePackage = () => {
           return (
             <div
               key={idx}
-              className={`relative w-80 h-80 rounded-3xl overflow-hidden bg-cover bg-center shadow-lg group transition-transform duration-300
+              className={`appear-animation relative w-80 h-80 rounded-3xl overflow-hidden bg-cover bg-center shadow-lg group transition-transform duration-300
                 ${isActive ? "scale-105" : ""}
                 lg:hover:scale-105
               `}
