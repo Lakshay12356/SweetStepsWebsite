@@ -30,7 +30,7 @@ const HeroSection = () => {
 
     gsap.fromTo(
       containerRef.current,
-      { scale: 0.8 },
+      { scale: 0.67 },
       {
         scale: 1,
         ease: "power3.out",
