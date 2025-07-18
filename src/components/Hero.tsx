@@ -92,9 +92,6 @@ const HeroSection = () => {
       </div>
 
       <div className="h-[8vh]" />
-      <div className="absolute bottom-2 right-0 animate-bounce text-gray-600">
-        <span className="text-2xl">↓</span>
-      </div>
     </section>
   );
 };
