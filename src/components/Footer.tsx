@@ -1,5 +1,5 @@
 import { Facebook, Instagram, Linkedin, X as Twitter } from "lucide-react";
-import Logo from "../assets/Icons/Logo.png";
+import Logo from "../assets/Icons/Logo.webp";
 
 const Footer = () => (
   <footer className="bg-black text-white py-10 px-4 rounded-t-3xl">
