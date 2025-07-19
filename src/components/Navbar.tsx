@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { gsap } from "gsap";
 import { CalendarHeart, Menu, X } from "lucide-react";
-import Logo from "../assets/Icons/Logo.png";
+import Logo from "../assets/Icons/Logo.webp";
 
 const Navbar = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
