@@ -53,9 +53,9 @@ const HeroSection = () => {
         <h1 className="text-3xl md:text-5xl font-bold text-gray-900">
           Capture Moments Frame Emotions
         </h1>
-        <p className="mt-3 text-lg md:text-xl font-medium text-gray-500 max-w-2xl">
+        <h2 className="mt-3 text-xl md:text-2 xl font-medium text-gray-500 max-w-2xl">
           Immortalize your loved ones’ touch with handcrafted impressions.
-        </p>
+        </h2>
         <div className="mt-6">
           <Button aria-label="Explore Impressions" />
         </div>
