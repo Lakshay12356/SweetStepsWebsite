@@ -1,8 +1,9 @@
 import BookingCard from "./ui/bookingCard";
-
+import easy from "../assets/Images/Easy.webp";
+import hors from "../assets/Images/hors.webp";
 const bookings = [
-  { title: "Booking made easy", text: "Reserve your slot online or call", image: "./assets/Images/Easy.webp" },
-  { title: "At-home or studio", text: "Get impressions in comfort or at studio", image: "./assets/Images/hors.webp" }
+  { title: "Booking made easy", text: "Reserve your slot online or call", image: easy },
+  { title: "At-home or studio", text: "Get impressions in comfort or at studio", image: hors }
 ];
 
 const BookingOptions = () => (
