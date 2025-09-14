@@ -6,6 +6,7 @@ import Footer from './components/Footer'
 import BookingOptions from './components/Bookings'
 import FAQ from './components/Faq'
 import Contact from './components/Contact'
+import { LayoutGridDemo } from './components/layoutGrid'
 
 const App = () => {
   return (
@@ -14,6 +15,7 @@ const App = () => {
       <Hero />
       <ChoosePackage />
       <Testimonials />
+      <LayoutGridDemo />
       <BookingOptions />
       <FAQ />
       <Contact />

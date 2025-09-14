@@ -44,12 +44,10 @@ const Contact = () => {
   return (
     <section className="bg-white py-20 px-6">
       <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-start">
-        {/* LEFT: Contact Info */}
         <div className="space-y-6">
           <h2 className="text-4xl font-extrabold text-gray-900 leading-tight">
             Get in Touch
           </h2>
-
           {contactDetails.map((info, i) => (
             <a
               key={i}
@@ -67,8 +65,6 @@ const Contact = () => {
               </div>
             </a>
           ))}
-
-          {/* MAP */}
           <div className="rounded-2xl bg-white shadow-sm border border-white/80">
             <button
               onClick={() => setShowMap(!showMap)}
@@ -107,8 +103,6 @@ const Contact = () => {
             </div>
           </div>
         </div>
-
-        {/* RIGHT: Form */}
         <form
           onSubmit={handleSubmit(onSubmit)}
           className="bg-gray-50 p-8 rounded-xl shadow-sm space-y-6"
