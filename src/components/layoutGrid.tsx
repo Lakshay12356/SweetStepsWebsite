@@ -1,5 +1,4 @@
-"use client";
-import { LayoutGrid } from"@/components/ui/layout-grid";
+import { LayoutGrid } from "./ui/layout-grid";
 
 export function LayoutGridDemo() {
   return (
