@@ -1,27 +1,20 @@
-import ChoosePackage from './components/Packages'
-import Hero from './components/Hero'
-import Navbar from './components/Navbar'
-import Testimonials from './components/Testimonials'
-import Footer from './components/Footer'
-import BookingOptions from './components/Bookings'
-import FAQ from './components/Faq'
-import Contact from './components/Contact'
-import { LayoutGridDemo } from './components/layoutGrid'
+import React from 'react';
+import { Routes, Route } from 'react-router-dom';
+import Layout from './components/Layout';
+import Home from './pages/Home';
+import Products from './pages/Products';
+import Contact from './pages/Contact';
 
 const App = () => {
   return (
-    <div className=''>
-      <Navbar />
-      <Hero />
-      <ChoosePackage />
-      <Testimonials />
-      <LayoutGridDemo />
-      <BookingOptions />
-      <FAQ />
-      <Contact />
-      <Footer />
-    </div>
-  )
-}
+    <Layout>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/products" element={<Products />} />
+        <Route path="/contact" element={<Contact />} />
+      </Routes>
+    </Layout>
+  );
+};
 
-export default App
+export default App;
