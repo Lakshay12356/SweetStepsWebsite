@@ -8,17 +8,7 @@ import HeroBg from '../assets/Images/hero-bg.png';
 const Home = () => {
     const { openBookingModal } = useBooking();
 
-    // Floating animation variant
-    const floating = {
-        animate: {
-            y: [0, -10, 0],
-            transition: {
-                duration: 4,
-                repeat: Infinity,
-                ease: "easeInOut" as const
-            }
-        }
-    };
+
 
     return (
         <div className="flex flex-col min-h-screen bg-background text-foreground overflow-x-hidden">
